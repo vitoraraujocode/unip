@@ -1,27 +1,4 @@
 @file:JvmName("JDoodle")
-fun main() {
-    println("Testando no JDoodle!") 
-    var opcao: String
-
-    do {
-        println("\n===== Calculadora da Lei de Ohm =====")
-        println("1 - Calcular Tensão (V)")
-        println("2 - Calcular Resistência (R)")
-        println("3 - Calcular Corrente (I)")
-        println("4 - Sair")
-        print("Escolha uma opção:  " )
-        opcao = readLine() ?: ""
-
-        when (opcao) {
-            "1" -> calcV()
-            "2" -> calcR()
-            "3" -> calcI()
-            "4" -> println("Programa desenvolvido por Seu Nome, RA Seu RA encerrado.")
-            else -> println("Opção inválida! Tente novamente.")
-        }
-    } while (opcao != "4")
-}
-
 fun calcV() {
     print("Digite a corrente (I) em Amperes: ")
     val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
@@ -60,3 +37,25 @@ fun calcI() {
     }
     
 }  
+fun main() {
+    println("Testando no JDoodle!") 
+    var opcao: String
+
+    do {
+        println("\n===== Calculadora da Lei de Ohm =====")
+        println("1 - Calcular Tensão (V)")
+        println("2 - Calcular Resistência (R)")
+        println("3 - Calcular Corrente (I)")
+        println("4 - Sair")
+        print("Escolha uma opção:  " )
+        opcao = readLine() ?: ""
+
+        when (opcao) {
+            "1" -> calcV()
+            "2" -> calcR()
+            "3" -> calcI()
+            "4" -> println("Programa desenvolvido por Seu Nome, RA Seu RA encerrado.")
+            else -> println("Opção inválida! Tente novamente.")
+        }
+    } while (opcao != "4")
+}
