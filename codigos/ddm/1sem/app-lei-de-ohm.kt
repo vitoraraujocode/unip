@@ -1,46 +1,49 @@
 @file:JvmName("JDoodle")
+// Função que calcula a tensão elétrica aplicada através da fórmula V = I * R.
 fun calcV() {
     print("Digite a corrente (I) em Amperes: ")
-    val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
-    print("Digite a resistência (R) em Ohms: ")
-    val R = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
-    
+    val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel intensidade elétrica for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
     val V = I * R
-    println("A tensão (V) é: $V Volts")
+    print("Digite a resistência (R) em Ohms: ")
+    val R = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel resistência for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
+    val V = I * R
+    println("A tensão (V) é: $V Volts") // Variável imutável com a fórmula que descobre a grandeza da resistência.
 }
-
+// Função que calcula a resistência de um material através da fórmula R= V/I.
 fun calcR() {
     print("Digite a tensão (V) em Volts: ")
-    val V = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
+    val V = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel tensão for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
     print("Digite a corrente (I) em Amperes: ")
-    val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
-
+    val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel intensidade elétrica for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
+// Condicional que verifica se a corrente elétrica for diferente de zero para a fórmula ser calculada normalmente.
     if (I != 0.0) {
         val R = V / I
         println("A resistência (R) é: $R Ohms")
-    } else {
+    } 
+// Outra condicional que impôe uma segunda condicional, ou seja, se o número for 0 vai ser printado "Erro: Corrente não pode ser zero para calcular a resistência".    
+    else {
         println("Erro: Corrente não pode ser zero para calcular a resistência.")
     }
 }
-
+// Função que calcula a intensidade elétrica através da fórmula I = V / R.
 fun calcI() {
     print("Digite a tensão (V) em Volts: ")
-    val V = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
+    val V = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel tensão for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
     print("Digite a resistência (R) em Ohms: ")
-    val R = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
-
-    if (R != 0.0) { // Adicionamos {} para o bloco do if
+    val R = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") // Faz com que se a variavel resistência for decimal ou nula irá retornar um println "Entrada inválida!", para evitar que a máquina dê erro.
+// Condicional que verifica se a resistência for diferente de zero para a fórmula ser calculada normalmente.    
+    if (R != 0.0) { 
         val I = V / R
         println("A corrente (I) é: $I Amperes")
-    } else {
+    } 
+    else {
         println("Erro: Resistência não pode ser zero para calcular a corrente.")
     }
-    
 }  
 fun main() {
     println("Testando no JDoodle!") 
     var opcao: String
-
+// Do é usado para mostra o menu de opções
     do {
         println("\n===== Calculadora da Lei de Ohm =====")
         println("1 - Calcular Tensão (V)")
@@ -48,8 +51,8 @@ fun main() {
         println("3 - Calcular Corrente (I)")
         println("4 - Sair")
         print("Escolha uma opção:  " )
-        opcao = readLine() ?: ""
-
+        opcao = readLine() ?: "" // Permite que o programa lê a opção escolhida pelo usuário
+// Permite executar a função escolhida pelo menu do usuário
         when (opcao) {
             "1" -> calcV()
             "2" -> calcR()
@@ -57,5 +60,7 @@ fun main() {
             "4" -> println("Programa desenvolvido por Seu Nome, RA Seu RA encerrado.")
             else -> println("Opção inválida! Tente novamente.")
         }
-    } while (opcao != "4")
+    } 
+// While permite repetir o menu até o usuário quiser sair dele
+    while (opcao != "4")
 }
