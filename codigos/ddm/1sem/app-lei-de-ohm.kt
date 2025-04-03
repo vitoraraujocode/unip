@@ -4,7 +4,6 @@ fun calcV() {
     print("Digite a corrente (I) em Amperes: ")
     // Recebe a entrada do usuario e retorna erro caso seja inválida.
     val I = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!") 
-    val V = I * R
     print("Digite a resistência (R) em Ohms: ")
     // Recebe a entrada do usuario e retorna erro caso seja inválida.
     val R = readLine()?.toDoubleOrNull() ?: return println("Entrada inválida!")
